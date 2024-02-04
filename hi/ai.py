@@ -7,10 +7,9 @@ import os
 import pygame
 from gtts import gTTS
 import requests
-import openai 
 from twilio.rest import Client
 from youtubesearchpython import *
-import vlc
+import vlc 
 from pytube import YouTube
         
 
@@ -35,9 +34,12 @@ def Play(play):
             video_stream = youtube.streams.get_highest_resolution()
             media = vlc.MediaPlayer(video_stream.url)
             media.play()
+            
+           
+            
 
-            while True:
-                 pass
+            # while True:
+            #      pass
              
              
         else:
