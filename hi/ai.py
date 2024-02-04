@@ -9,6 +9,41 @@ from gtts import gTTS
 import requests
 import openai 
 from twilio.rest import Client
+from youtubesearchpython import *
+import vlc
+from pytube import YouTube
+        
+
+def Play(play):
+       
+        # customSearch = CustomSearch('movie', VideoSortOrder.uploadDate, limit = 1)
+        # customSearch = CustomSearch('', VideoSortOrder.viewCount, limit=1)
+        # query = "Mahabali Maharudra"
+        query = play
+        textSearch = query.replace(" ", "")
+
+        customSearch = Hashtag(textSearch, limit = 1)
+
+        results = customSearch.result()
+
+        if results['result']:
+        
+        
+            url = results['result'][0]['link']
+
+            youtube = YouTube(f"{url}")
+            video_stream = youtube.streams.get_highest_resolution()
+            media = vlc.MediaPlayer(video_stream.url)
+            media.play()
+
+            while True:
+                 pass
+             
+             
+        else:
+            print('No results found.')
+
+
 
   
 
@@ -149,7 +184,11 @@ if __name__ == "__main__":
         elif 'speak' in query:
             query = query.replace('speak', '').strip()
             speak(query)
-         
+            
+        elif 'play' in query:
+            query = query.replace('play', '').strip()
+            Play(query)
+            
         elif('call ashok') in query:
             account_sid = "AC84abf39b57408c683f2cd00a708cd0b0"
             auth_token = "2c60267de08e85a6e72abea2ad4e7faf"
