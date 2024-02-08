@@ -88,7 +88,7 @@ def wishMe():
     else:
         speak("Good Evening!")  
 
-    speak("I am your personal assistant . Please tell me how may I help you")       
+    speak("I am , Happy . Please tell me , how may I help you")       
     
 
 def takeCommand():
@@ -115,12 +115,7 @@ def takeCommand():
     
     return ''
 
-import openai
 
-def chatgpt():
-  pass
-
-    
 
 
 if __name__ == "__main__":
@@ -137,7 +132,20 @@ if __name__ == "__main__":
             speak("According to my data")
             print(results)
             speak(results)
-
+        
+        #  close progrem 
+          
+        elif 'close firefox' in query:
+            os.system('pkill firefox')
+            
+        elif 'close vs code' in query:
+            os.system('pkill code')
+            
+        elif 'close file manager' in query:
+            os.system('pkill dolphin')
+            
+        # -------------------------------
+            
         elif 'open youtube' in query:
             webbrowser.open("youtube.com")
             
@@ -169,16 +177,15 @@ if __name__ == "__main__":
         elif 'open file manager' in query:
             os.system("dolphin")
             speak("file manager is open")
-        elif 'open ai' in query:
-            chatgpt()
-            speak("chatgpt in process")
+       
           
         elif 'you shut up' in query:
             speak("sorry")
             istrue = False
             
         elif 'shut down' in query:
-            os.system("shutdown now")
+            os.system('init 0')
+            # os.system("shutdown now")
             
         elif 'who are you' in query:
             speak("I am  personal assistant . and my owner is Ashok ")
