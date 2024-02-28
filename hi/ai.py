@@ -11,7 +11,7 @@ from twilio.rest import Client
 from youtubesearchpython import *
 import vlc 
 from pytube import YouTube
-        
+
 
 def Play(play):
        
@@ -46,12 +46,6 @@ def Play(play):
             print('No results found.')
 
 
-
-  
-
-
-
-
 def speak(text):
     tts = gTTS(text=text, lang='en',slow=False)
     tts.save("output.mp3")
@@ -63,7 +57,6 @@ def speak(text):
 
     while pygame.mixer.music.get_busy():
         pygame.time.Clock().tick(10)
-        
 
 
 # engine = pyttsx3.init('sapi5')
@@ -89,7 +82,7 @@ def wishMe():
         speak("Good Evening!")  
 
     speak("I am , Happy . Please tell me , how may I help you")       
-    
+
 
 def takeCommand():
     r = sr.Recognizer()
@@ -114,8 +107,6 @@ def takeCommand():
             print("Recognition interrupted by user.")
     
     return ''
-
-
 
 
 if __name__ == "__main__":
@@ -180,11 +171,12 @@ if __name__ == "__main__":
        
           
         elif 'you shut up' in query:
-            speak("sorry")
-            istrue = False
+            os.system('poweroff')
+            #speak("sorry")
+            #istrue = False
             
         elif 'shut down' in query:
-            os.system('init 0')
+            os.system('poweroff')
             # os.system("shutdown now")
             
         elif 'who are you' in query:
