@@ -113,7 +113,7 @@ if __name__ == "__main__":
     wishMe()
     istrue = True
     while istrue:
-        
+      
         query = takeCommand().lower()
 
         if 'tell me ' in query:
